@@ -1,14 +1,14 @@
-# rrt
-快速搜索随机数（Rapid-exploration Random Tree）
+# RRT
+Rapid-exploration Random Tree(快速搜索随机树)
 
 ## 构建快速随机树
 ### 输入
-- 初始位置：x(init)
+- 初始位置：x_init
 - 地图环境：M
-- 目标位置：x(goal)
+- 目标位置：x_goal
 
 ### 输出
-- 从x(init) -> x(goal)的路径 T
+- 从x_init -> x_goal的路径 T
 
 ### 过程
 - T.init()
