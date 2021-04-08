@@ -3,6 +3,7 @@
 
 #ifndef RRT_RRT_ALGO_H
 #define RRT_RRT_ALGO_H
+#include "iostream"
 #include "vector"
 namespace eric{
 namespace rrt_algo{
@@ -12,11 +13,11 @@ namespace rrt_algo{
         double theta;
     };
     struct Path : PathPoint{
-        vector<PathPoint> globalMap;
+        std::vector<PathPoint> globalMap;
     };
     bool operator==(const PathPoint p1, const PathPoint p2)
     {
-        if (p1.x == p2.x && p1.y == p2.y ) return true;
+        return p1.x == p2.x && p1.y == p2.y;
     }
     class rrt_algo {
         // map
