@@ -19,6 +19,8 @@ namespace rrt_algo{
     {
         return p1.x == p2.x && p1.y == p2.y;
     }
+    PathPoint p_init{}, p_goal{};
+    Path Map{};
     class rrt_algo {
         // map
         // find near
