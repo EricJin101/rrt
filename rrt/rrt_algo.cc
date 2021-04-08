@@ -3,7 +3,7 @@
 
 #include "rrt_algo.h"
 namespace eric{
-    namespace rrt_algo{
+namespace rrt_algo{
     void rrtNear(PathPoint *point, Path *global_map)
     {
         /**
@@ -11,18 +11,18 @@ namespace eric{
          * @param: point is current position,
          *         global_map is planned path
          * */
-
     }
-    void rrtStepForward(PathPoint *p_rand, double stepSize)
+    void rrtStepForward(PathPoint *p_rand, PathPoint *p_near, double stepSize)
     {
         /** @brief:
          *  @param:
          * */
+
     }
-    bool rrtFinishCondition(PathPoint *p_new, PathPoint *p_goal)
+    bool rrtFinishCondition(PathPoint *p1, PathPoint *p2)
     {
-        if (p_new == p_goal)
-        {
+        if (p1 == p2)
+        {// planning point is goal.
             return true;
         }
         return false;
@@ -33,5 +33,5 @@ namespace eric{
          * @brief:
          * */
     }
-    }
-}
+}// rrt_algo
+}// eric
