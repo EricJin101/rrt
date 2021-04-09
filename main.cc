@@ -9,6 +9,7 @@ int main()
     p2.x = 1;
     p2.y = 2;
     std::cout << (p1 == p2) << std::endl;
-    eric::rrt_algo::getRandomPoint();
-    eric::rrt_algo::generateRandomNum(10);
+//    eric::rrt_algo::getRandomPoint();
+//    eric::rrt_algo::generateRandomNum(10);
+    eric::rrt_algo::rrtCore();
 }

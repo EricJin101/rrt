@@ -6,6 +6,7 @@
 #include "iostream"
 #include "vector"
 #include <random>
+#include <limits>
 using namespace std;
 namespace eric{
 namespace rrt_algo{
@@ -15,23 +16,29 @@ namespace rrt_algo{
         double theta;
     };
     struct Path : PathPoint{
-        vector<PathPoint> globalMap;
+        PathPoint point;
+        int before;
     };
     bool operator==(const PathPoint p1, const PathPoint p2)
     {
         return p1.x == p2.x && p1.y == p2.y;
     }
-
     int generateRandomNum(int range)
     {
         std::uniform_int_distribution<int> d(0, range);
         std::random_device rd1; // uses RDRND or /dev/urandom
-        std::cout << d(rd1) << ' ';
+        std::cout << "map remains: " << range << "random number: " << d(rd1) << endl;
         return d(rd1);
     }
-    PathPoint p_init{}, p_goal{};
+    double EuclideanDistance(PathPoint p1, PathPoint p2)
+    {
+        return sqrt((p1.x - p2.x) * (p1.x - p2.x) +
+                       (p1.y - p2.y) * (p1.y - p2.y));
+    }
+    Path p_init{}, p_goal{};
     vector<PathPoint> Map;
-    vector<PathPoint> globalMap;
+    vector<Path> globalMap;
+    double step{0.2};// percentage
     class rrt_algo {
         // map
         // find near
