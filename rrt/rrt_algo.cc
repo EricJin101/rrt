@@ -19,10 +19,19 @@ namespace rrt_algo{
          * */
 
     }
+    PathPoint getRandomPoint()
+    {
+
+        PathPoint t{};
+        return t;
+    }
     bool rrtFinishCondition(PathPoint *p1, PathPoint *p2)
     {
         if (p1 == p2)
         {// planning point is goal.
+            return true;
+        }else if (1)
+        {// list all potential point
             return true;
         }
         return false;

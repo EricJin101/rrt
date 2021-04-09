@@ -5,6 +5,8 @@
 #define RRT_RRT_ALGO_H
 #include "iostream"
 #include "vector"
+#include <random>
+using namespace std;
 namespace eric{
 namespace rrt_algo{
     struct PathPoint {
@@ -13,11 +15,18 @@ namespace rrt_algo{
         double theta;
     };
     struct Path : PathPoint{
-        std::vector<PathPoint> globalMap;
+        vector<PathPoint> globalMap;
     };
     bool operator==(const PathPoint p1, const PathPoint p2)
     {
         return p1.x == p2.x && p1.y == p2.y;
+    }
+    int generateRandomNum(int range)
+    {
+        srand((unsigned)time(nullptr));
+        unsigned int r = rand()%range;
+        cout << r << endl;
+        return r;
     }
     PathPoint p_init{}, p_goal{};
     Path Map{};
