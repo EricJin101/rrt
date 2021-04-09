@@ -35,7 +35,7 @@ namespace rrt_algo{
         return sqrt((p1.x - p2.x) * (p1.x - p2.x) +
                        (p1.y - p2.y) * (p1.y - p2.y));
     }
-    Path p_init{}, p_goal{};
+    PathPoint p_init{}, p_goal{};
     vector<PathPoint> Map;
     vector<Path> globalMap;
     double step{0.2};// percentage

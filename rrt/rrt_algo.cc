@@ -30,11 +30,14 @@ namespace rrt_algo{
         rrtMapGeneration();
         p_init.x = 0;
         p_init.y = 0;
-        globalMap.push_back(p_init);// first point
+        Path _path{};
+        _path.point = p_init;
+        _path.before = 1;
+        globalMap.push_back(_path);// first point
         p_goal.x = 9;
         p_goal.y = 9;
         Map.erase(Map.begin());// remove init point
-        Map.erase(Map.begin() + Map.size() - 1); // remove point goal
+//        Map.erase(Map.begin() + Map.size() - 1); // remove point goal
     }
     void rrtNear(PathPoint point)
     {
@@ -59,7 +62,7 @@ namespace rrt_algo{
         p_new.y = globalMap[idx_map].y + step * (point.y - globalMap[idx_map].y);
         p_new.before = idx_map;
         globalMap.push_back(p_new);
-        Map.erase(Map.begin() + idx_map - 1);
+//        Map.erase(Map.begin() + idx_map - 1);
     }
     void rrtStepForward(PathPoint *p_rand, PathPoint *p_near, double stepSize)
     {
@@ -77,11 +80,16 @@ namespace rrt_algo{
         p.x = Map[rd].x;
         p.y = Map[rd].y;
         cout << "New Point.    x: " << p.x << ", y: " << p.y << endl;
+        Map.erase(Map.begin() + rd - 1);
         return p;
     }
     bool rrtFinishCondition(PathPoint p1)
     {
-        if (p1 == p_goal.point)
+        if (p1.x == p1.y && p1.x == 9)
+        {
+            cout << "got u" << endl;
+        }
+        if (p1 == p_goal)
         {// planning point is goal.
             return true;
         }else if (0)
