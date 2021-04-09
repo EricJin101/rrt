@@ -4,6 +4,20 @@
 #include "rrt_algo.h"
 namespace eric{
 namespace rrt_algo{
+    void rrtMapGeneration()
+    {
+        PathPoint p{};
+        p.x = 1;
+        p.y = 2;
+        Map.push_back(p);// filling with points.or read from file
+    }
+    void initilization()
+    {
+        rrtMapGeneration();
+        p_init.x = 0;
+
+        p_goal.x = 1;
+    }
     void rrtNear(PathPoint *point, Path *global_map)
     {
         /**
@@ -21,13 +35,14 @@ namespace rrt_algo{
     }
     PathPoint getRandomPoint()
     {
-
+        // according to map size , generate random number
+        int rd = generateRandomNum(11);
         PathPoint t{};
         return t;
     }
-    bool rrtFinishCondition(PathPoint *p1, PathPoint *p2)
+    bool rrtFinishCondition(PathPoint p1)
     {
-        if (p1 == p2)
+        if (p1 == p_goal)
         {// planning point is goal.
             return true;
         }else if (1)
@@ -41,6 +56,15 @@ namespace rrt_algo{
         /**
          * @brief:
          * */
+    }
+    void rrtCore()
+    {
+        initilization();
+        PathPoint p1 = getRandomPoint();
+        while (!rrtFinishCondition(p1))
+        {
+            // get next point
+        }
     }
 }// rrt_algo
 }// eric

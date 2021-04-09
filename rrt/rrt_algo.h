@@ -21,15 +21,17 @@ namespace rrt_algo{
     {
         return p1.x == p2.x && p1.y == p2.y;
     }
+
     int generateRandomNum(int range)
     {
-        srand((unsigned)time(nullptr));
-        unsigned int r = rand()%range;
-        cout << r << endl;
-        return r;
+        std::uniform_int_distribution<int> d(0, range);
+        std::random_device rd1; // uses RDRND or /dev/urandom
+        std::cout << d(rd1) << ' ';
+        return d(rd1);
     }
     PathPoint p_init{}, p_goal{};
-    Path Map{};
+    vector<PathPoint> Map;
+    vector<PathPoint> globalMap;
     class rrt_algo {
         // map
         // find near
